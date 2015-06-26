@@ -1,0 +1,83 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="css-positioning.css">
+</head>
+<body>
+    <h4>Positioning: Static, Relative, Absolute, Fixed</h4>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box border-box"></div>
+<!--    <div class="box content-box"></div>-->
+    <div class="box relative" style="width: 200px; height: 200px;">
+        <div class="box absolute" style="background-color: white; top: 50px; left: 80px;"></div>
+    </div>
+    
+    <hr>
+    
+    <h3>Display: Block, Inline, Inline-Block, None</h3>
+    <div class="block">
+        <h4>These are inline elements by default:</h4>
+        <ul>
+            <li>b, big, i, small, tt</li>
+            <li>abbr, acronym, cite, code, dfn, em, kbd, strong, samp, var</li>
+            <li>a, bdo, br, img, map, object, q, script, span, sub, sup</li>
+            <li>button, input, label, select, textarea</li>
+        </ul>
+    </div>
+    <div class="block" style="height: 50px;">
+        <span>I am a span</span>
+        <strong>I am strong</strong>
+        <a href="#">I am a link</a>
+    </div>
+    <div class="block">
+        <h4>These red blocks are block level elements.  The following are block level elements by default:</h4>
+        <ul>
+            <li>h1, h2, h3, h4, etc</li>
+            <li>article, aside, figure, caption, footer, header, nav, main</li>
+            <li>video, audio, noscript</li>
+            <li>div, ul, p, form, table</li>
+        </ul>
+    
+    </div>
+    
+    <div class="inline-block">Inline-Block</div>
+    <div class="inline-block">Inline-Block</div>
+    <div class="inline-block">Inline-Block</div>
+    
+    <hr>
+    
+    <h3>All about Floats</h3>
+    <div class="float-l"></div>
+    <p>Do you see any Teletubbies in here? Do you see a slender plastic tag clipped to my shirt with my name printed on it? Do you see a little Asian child with a blank expression on his face sitting outside on a mechanical helicopter that shakes when you put quarters in it? No? Well, that's what you see at a toy store. And you must think you're in a toy store, because you're here shopping for an infant named Jeb.</p>
+    
+    <br><br>
+    
+    <h4>Block Formatting Context Not Active</h4>
+    <div class="float-container">
+        <div class="floater"></div>
+        <div class="floater"></div>
+        <div class="floater"></div>
+    </div>
+    
+    <br><br>
+    
+    <h4 class="clear-l">Block Formatting Context Applied</h4>
+    <div class="float-container block-format">
+        <div class="floater"></div>
+        <div class="floater"></div>
+        <div class="floater"></div>
+    </div>
+    
+    
+    <br><br>
+    
+    <h4 class="clear-l">3 Column Layouts with BFC</h4>
+    <div class="page-content">
+        <div class="left">Do you see any Teletubbies in here? Do you see a slender plastic tag clipped to my shirt with my name printed on it? Do you see a little Asian child with a blank expression on his face sitting outside on a mechanical helicopter that shakes when you put quarters in it? No? Well, that's what you see at a toy store. And you must think you're in a toy store, because you're here shopping for an infant named Jeb.</div>
+        <div class="middle">Do you see any Teletubbies in here? Do you see a slender plastic tag clipped to my shirt with my name printed on it? Do you see a little Asian child with a blank expression on his face sitting outside on a mechanical helicopter that shakes when you put quarters in it? No? Well, that's what you see at a toy store. And you must think you're in a toy store, because you're here shopping for an infant named Jeb.</div>
+        <div class="right">Do you see any Teletubbies in here? Do you see a slender plastic tag clipped to my shirt with my name printed on it? Do you see a little Asian child with a blank expression on his face sitting outside on a mechanical helicopter that shakes when you put quarters in it? No? Well, that's what you see at a toy store. And you must think you're in a toy store, because you're here shopping for an infant named Jeb.</div>
+    </div>
+</body>
+</html>

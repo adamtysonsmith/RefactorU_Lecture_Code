@@ -1,0 +1,105 @@
+/*
+* {
+    box-sizing: border-box;
+}
+*/
+
+.box {
+    width: 100px;
+    height: 100px;
+    background-color: darkcyan;
+    padding: 10px;
+    margin: 10px;
+    border: 5px solid gray;
+}
+
+.border-box {
+    box-sizing: border-box;
+}
+
+.content-box {
+    box-sizing: content-box;
+}
+
+.relative {
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.block {
+    display: block;
+    height: 150px;
+    background-color: brown;
+    margin: 10px;
+}
+
+.inline-block {
+    display: inline-block;
+    height: 100px;
+    background-color: aqua;
+    margin: 10px;
+}
+
+.float-l {
+    float: left;
+    width: 100px;
+    height: 100px;
+    background-color: darkmagenta;
+}
+
+.float-r {
+    float: right;   
+}
+
+.clear-l {
+    clear: left;
+}
+
+.clear-r {
+    clear: right;
+}
+
+.clear-l {
+    clear: both;
+    overflow: auto;
+}
+
+.float-container {
+    background-color: aqua;
+}
+.floater {
+    float: left;
+    width: 50px;
+    height: 50px;
+    background-color: dimgrey;
+    margin: 5px;
+}
+
+.block-format {
+    overflow: auto;
+}
+
+.page-content {
+/*    overflow: hidden;*/
+}
+.left {
+    background-color: dimgrey;
+    float: left;
+    width: 32%;
+    margin: 5px;
+}
+.middle {
+    background-color: dimgrey;
+    float: left;
+    width: 32%;
+    margin: 5px;
+}
+.right {
+    background-color: dimgrey;
+    float: left;
+    width: 32%;
+    margin: 5px;
+}

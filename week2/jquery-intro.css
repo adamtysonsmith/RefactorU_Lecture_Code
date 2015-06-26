@@ -1,0 +1,17 @@
+.box {
+    width: 200px;
+    height: 200px;
+    background-color: dodgerblue;
+}
+
+.another-box {
+    width: 200px;
+    height: 200px;
+    background-color: darkorange;
+}
+.red {
+    background-color: red;
+}
+.circle {
+    border-radius: 100%;
+}

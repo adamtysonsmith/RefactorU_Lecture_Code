@@ -1,0 +1,83 @@
+/* Font Sizing */
+html {
+    font-size: 24px;
+}
+
+.main-header {
+    font-size: 36px;
+}
+
+.subheader {
+    font-size: 0.5em; /* This will inherit from parent */ 
+}
+.alt-subheader {
+    font-size: 1rem; /* This will inherit from html base font size */  
+}
+
+
+/* Column Layouts */
+.column-container {
+    overflow: auto; /* Creates a BFC */
+    background-color: antiquewhite;
+    margin-top: 20px; /* Spacing between rows */
+}
+.col-1 {
+/*    float: left;*/
+    width: 100%; /* Mobile First */
+    background-color: cadetblue;
+}
+.col-2 {
+/*    float: left;*/
+    width: 100%; /* Mobile First */
+    background-color: coral;
+}
+
+
+
+
+
+/* How to target all classes that begin with "col-" */
+[class*='col-'] {
+    float: left;
+}
+
+
+
+/* Media Query Display Utilities */
+.show-query-550 {
+    display: none;
+}
+.show-query-750 {
+    display: none;
+}
+
+
+/* Media Queries */
+@media screen and (min-width: 550px) {
+    .show-query-550 {
+        display: block;
+    }
+    .col-1 {
+        width: 50%;
+    }
+    .col-2 {
+        width: 50%;  
+    }
+}
+
+@media screen and (min-width: 750px) {
+    .show-query-550 {
+        display: none;
+    }
+    .show-query-750 {
+        display: block;
+    }
+    .col-1 {
+        width: 33%;
+    }
+    .col-2 {
+        width: 33%;  
+    }
+}
+
+
