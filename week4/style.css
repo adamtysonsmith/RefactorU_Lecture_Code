@@ -1,0 +1,19 @@
+div[class*="col-"] {
+    border: 1px solid white;
+    color: white;
+}
+div[class*="col-xs-"] {
+    background-color: blueviolet;
+}
+div[class*="col-sm-"] {
+    background-color: firebrick;
+}
+div[class*="col-md-"] {
+    background-color: cadetblue;
+}
+div[class*="col-lg-"] {
+    background-color: darkslategray;
+}
+.col-xs-10.form-input, .col-xs-offset-2.col-xs-10 {
+    background-color: white;
+}

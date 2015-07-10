@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bootstrap Demo</title>
+        <!-- We are loading Bootstrap CSS before our style.css because we want to load the Bootstrap style first, then override that css with our own custom styles if needed  -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Check the documentation to see how all of the Boostrap CSS classes work -->
+    <!-- http://getbootstrap.com/css/ -->
+    
+    <!-- .container is a Bootstrap class to contain your rows -->
+    <!-- .container will also center your content on the page -->
+    <div class="container">
+        <h1>Bootstrap!</h1>
+        <!-- .btn will create a button with default styling, then the additional .btn-warning class will apply a 'warning' styling -->
+        <button class="btn btn-warning">Warning!</button>
+        <hr>
+        
+        <!-- Using the Grid System -->
+        <!-- The grid is based on 12 columns wide -->
+        <!-- Our rows must be nested in our .container -->
+        
+        <!-- This is how we specify column sizes: -->
+        <!-- .col-[screen size]-[how many columns wide] -->
+        
+        <!-- Screen Breakpoints -->
+        <!--     < 768px     .col-xs-[columns wide] -->
+        <!--     < 992px     .col-sm-[columns wide] -->
+        <!--     < 1200px    .col-md-[columns wide] -->
+        <!--     > 1200px    .col-lg-[columns wide] -->
+
+        <!-- Example of specifying different column sizes based on screen size: -->
+        <!-- When the screen size is less than 768px, it will display a full width(12) column -->
+        <!-- When the screen size is greater than 768px it will dispay a half width(6) column
+        <!-- .col-xs-12 .col-sm-6 -->
+        
+        <!-- This 12 column div below is inside one row (or block in css terms) -->
+        <div class="row">
+            <div class="col-xs-12">I am a full width column! (col-12)</div>
+        </div>
+        
+        <!-- You can use any combination of cols that add up to 12 inside a row -->
+        <div class="row">
+            <div class="col-md-4">I am a 4 column element</div>
+            <div class="col-md-8">I am an 8 column element</div>
+        </div>
+        
+        <!-- In Class Challenge:
+            Create 2 elements that share a line on xs and sm screen sizes,
+            create 3 elements that share a line on md screen sizes,
+            and create 4 elements that share a line on lg screen sizes -->
+            
+        <!-- 2 elements that share a line on xs and sm screen sizes -->
+        <div class="row">
+            <div class="col-xs-6 col-sm-6">We Share a Line on XS and SM Screens (and greater)</div>
+            <div class="col-xs-6 col-sm-6">We Share a Line on XS and SM Screens (and greater)</div>
+        </div>
+        
+        <!-- 3 elements that share a line on md screen sizes -->
+        <div class="row">
+            <div class="col-md-4">We Share a Line on MD Screens (and greater)</div>
+            <div class="col-md-4">We Share a Line on MD Screens (and greater)</div>
+            <div class="col-md-4">We Share a Line on MD Screens (and greater)</div>
+        </div>
+        
+        <!-- 4 elements that share a line on lg screen sizes -->
+        <div class="row">
+            <div class="col-lg-3">We Share a Line on LG Screens Only</div>
+            <div class="col-lg-3">We Share a Line on LG Screens Only</div>
+            <div class="col-lg-3">We Share a Line on LG Screens Only</div>
+            <div class="col-lg-3">We Share a Line on LG Screens Only</div>
+        </div>
+        
+        
+        <!----------------------------- Nested Columns ----------------------------------------------->
+        <!-- Now lets get loopy and use some nested columns! Columns inside columns! Holy Mackerel! -->
+        <div class="row">
+            <div class="col-sm-12">
+              <p>I am the parent column (12)</p>
+               <!-- You first need to nest another row -->
+               <!-- Then it's business as usual -->
+                <div class="row">
+                    <div class="col-xs-6">I am a nested 6 column block</div>
+                    <div class="col-xs-6">I am a nested 6 column block</div>
+                </div>
+                <p>I'm still the parent!</p>
+            </div><!-- End Parent Row -->
+        </div>
+        <hr>
+        <!-- You can nest columns as deep as you want. Go crazy. -->
+        
+        
+        <!----------------------------- Using Forms ----------------------------------------------->
+        <!-- Forms in Bootstrap are as easy as pie... and styled much better than defaults -->
+        <!-- There are many options, check them out: http://getbootstrap.com/css/#forms -->
+        <!-- Challenge: Build a horizontal style form that takes city, state, and zip inputs -->
+        <!-- It is best practice to use a form group for each form element -->
+        
+        <h2>Horizontal Style Form</h2>
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label for="inputCity" class="col-xs-2 control-label">City</label>
+                <div class="col-xs-10 form-input">
+                  <input type="text" class="form-control" id="inputCity" placeholder="City">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="inputState" class="col-xs-2 control-label">State</label>
+                <div class="col-xs-10 form-input">
+                  <input type="text" class="form-control" id="inputState" placeholder="State">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="inputZip" class="col-xs-2 control-label">Zip</label>
+                <div class="col-xs-10 form-input">
+                  <input type="text" class="form-control" id="inputZip" placeholder="Zip">
+                </div>
+            </div>
+            
+            <div class="form-group">
+               <!-- We use offset to push this button to the left 2 cols -->
+                <div class="col-xs-offset-2 col-xs-10">
+                  <button type="submit" class="btn btn-primary">Give Us Your Location!</button>
+                </div>
+            </div>
+        </form>
+        
+        
+        
+    </div> <!-- End .container -->
+    
+    <!-- When loading the Boostrap JavaScript library, you need to make sure you load jQuery first, -->
+    <!-- because Bootstrap's JS Library is dependent on jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
+<!-- Words of Caution -->
+<!-- Don't mess with the padding or margins of columns in bootstrap, this can mess up the grid -->
+<!-- It's a better idea to create your own divs inside columns if you need to tweak padding -->
+
+<!-- When using the Bootstrap JavaScript components, be sure to keep the HTML structure intact -->
+<!-- Bootstrap relies on the HTML structure to make the JS work -->
+<!-- Keep the structure, but tweak the styles as needed -->
+
+<!-- In general, use what Bootstrap provides you, but try not to overwrite the defaults to the point that your Bootstrap installation breaks.  It is better to create your own styles on top of Bootstrap. -->
