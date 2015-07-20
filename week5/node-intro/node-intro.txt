@@ -1,0 +1,46 @@
+Node is a JavaScript runtime environment
+Based on Chrome's V8 JavaScript engine
+
+Since Node is not in a browser, there is no window or DOM
+There are no browser based security restrictions - You can access file system, hardware and the network.
+Network access allows Node to act as a webserver
+
+Since there is no window, there is not one global scope.  Each file in Node.js has its own scope.
+"Global" variables are not automatically shared, we need to export and require modules
+
+Node REPL - Read, Eval, Print, Loop
+
+///////////////////////////////////
+// In Class Challenge
+///////////////////////////////////
+
+Write a script that takes one argument, and reverses the string
+ex. node reverse.js 'hello world'
+Should output => dlrow olleh
+
+
+///////////////////////////////////
+// In Class Challenge 2
+///////////////////////////////////
+
+Write a script that copies the contents of one file and outputs to a new file
+ex. node copy.js notes-to-copy.txt ==> output.txt
+
+
+Use npm init to start a project
+    - creates package.json
+    - specify the main js file entry point
+    - specify git repo
+    - Other stuff
+    
+Then, when you add a dependency, you can use --save to save the module as a dependency
+npm install underscore --save
+
+When looking at dependency versions, most projects use semantic versioning
+- First number is the MAJOR version number.  Introduces breaking changes.
+- Second number is the MINOR version number.  New features were added.
+- Third number is the PATCH number.  Bugs were fixed.
+
+When using the ~ in the package.json, npm will auto update the modules when calling npm install (redownloading the packages).  It will only auto-update the minor and patch updates.  The ~ locks in the major version number.
+
+You can gitignore the node_modules, then if someone downloads your project they can just npm install
