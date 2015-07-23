@@ -1,0 +1,9 @@
+extends layout
+
+block content
+    h1 Hello Foodies!
+    
+    for foodItem in allFoods
+        div.food-item
+            a(href="/foods/#{foodItem.slug}")= foodItem.name
+            a(href="/foods/#{foodItem.slug}/delete")  Delete!

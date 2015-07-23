@@ -1,0 +1,7 @@
+extends layout
+
+block content
+    h1= thisFood.name
+    
+    p This #{thisFood.name} is #{thisFood.flavor}
+    img(src="#{thisFood.image}" width="400px")

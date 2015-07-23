@@ -1,0 +1,61 @@
+extends layout
+
+block content
+    h1 Hello Boulder!
+    p.my-para.blue
+        // Reference the counter key in our object that was passed via render() using #{key}
+        a(href="#") I am a paragraph.  The current count is #{counter}
+    
+    ul.nav.green.float-left
+        li#first-item.nav-li
+            a(href="#") 1st List Item
+        li#second-item.nav-li
+            a(href="#") 2nd List Item
+        li#third-item.nav-li
+            a(href="#") 3rd List Item
+
+    div.text
+        | I am content inside the parent div
+
+block otherContent
+    // Another way to inject data is using the tag=
+    h2= counter
+    
+    h3 Best Foods Ever.
+    // But this sucks, because we can loop!
+    //ul
+        li= foods[0].name
+        li= foods[1].name
+        li= foods[2].name
+
+    ul
+        for fooditem in foods
+            if fooditem.name === 'pears'
+                li yuck
+            else
+                li= fooditem.name
+                
+    // Here is how you write javascript in jade
+    // Simply include a dash - at the beginning
+    -var myVar = 'Beans';
+    -console.log(myVar)
+    
+    
+    
+    // Jade mixins
+    // Declare the mixin
+    mixin insertSpan(arg)
+        span #{arg}
+        // This means if there is a block after the mixin, display it
+        if block
+            block
+            
+    // Use the mixin!
+    h1 This is a mixin that inserts a span: 
+        +insertSpan(myVar)
+    
+block form
+    form.main-form(method="POST" action="/submit")
+        label Enter some Foods
+        input(name="foodName" type="text")
+        input(type="submit")
