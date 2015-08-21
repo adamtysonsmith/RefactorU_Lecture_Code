@@ -1,0 +1,21 @@
+// Must use ng-submit because default submit is disabled with angular
+// On submit, run addAnimal() on our scope object
+form(ng-submit="addAnimal()")
+    // Set up ng-model to expose our data to angular
+    // Here we create the newAnimal property on the scope, and add properties that match our schema exactly
+    input(ng-model="newAnimal.name" placeholder="Name")
+    input(ng-model="newAnimal.age" placeholder="Age")
+    input(ng-model="newAnimal.color" placeholder="Color")
+    input(ng-model="newAnimal.parentSpecies" placeholder="Parent Species")
+    
+    input(type="submit")
+
+p The newAnimal Object: {{newAnimal}}
+p All the animals.. {{animals}}
+
+div.animal-list
+    div.animal(ng-repeat="animal in animals")
+        h3 {{animal.name}}
+        p Age: {{animal.age}}
+        p Color: {{animal.color}}
+        p Parent Species: {{animal.parentSpecies}}

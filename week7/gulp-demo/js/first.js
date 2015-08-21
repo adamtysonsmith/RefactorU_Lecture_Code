@@ -1,0 +1,1 @@
+var cats = ['garfield','fluffy','bastard cat'];

@@ -1,0 +1,45 @@
+REST - Representational State Transfer
+===============================================================
+
+A methodology for organizing your routes.  It's an architectural style.
+REST is not a specific tool, library, or protocol.
+
+All information needed to satisfy a request must be included in the request.
+Therefore the server is stateless, it does not keep track of conversations.
+
+REST APIs usually always respond with JSON data.
+
+An action is idempotent if performing that action once has the same effect as performing it many times.
+This is the most important thing to consider when choosing which verb to use:
+
+GET(Read) - Used for retreiving data. Safe and idempotent.
+PUT(Create Or Update) - Used for updating or modifying data. Idempotent. Duplicate requests will have the same effect.  Data stored in request body.
+DELETE(Delete) - Used for deleting data. Idempotent. Duplicate requests will have the same effect. Data stored in request body but usually not used.
+
+POST - Used for creating data and also updating in some cases. NOT IDEMPOTENT. This will modify the server state in some way. Data stored in request body.
+    POSTing more than once can create duplicates in the database.
+    The key is that you will use POST when you need each POST to modify data, like incrementing a bank account
+    Ex. POST users/ ==> request body specifies information about the new user to be stored in the db
+    Ex. POST users/Bob ==> Increment bob's bank account +$100 each time
+
+Mapping REST to CRUD
+    GET - READ
+    PUT - CREATE or UPDATE (Once)
+    DELETE - DELETE
+    POST - CREATE or UPDATE (Multiple times)
+    
+
+URLs should have nouns, not verbs
+POST /user/delete/Carlos - NOT RESTful
+Instead:
+DELETE /user/Carlos
+    
+
+
+
+When to use REST?
+===============================================================
+
+REST is used to make resources available to clients.
+Not all HTTP verbs make sense for every resource, but use what you have available!
+If your API deviates from the strict RESTful convention, it's ok

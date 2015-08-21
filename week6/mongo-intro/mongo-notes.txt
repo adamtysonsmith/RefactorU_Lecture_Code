@@ -1,0 +1,115 @@
+Ways to save data:
+- File System
+- NoSQL
+- SQL
+
+Disadvantages of FS
+- super slow
+
+Databases let us access small pieces of data quickly and efficiently.  The data can change often such as objects and arrays.
+Databases are not good for storing large pieces of data that don't change often, such as videos, songs and images.
+
+SQL
+Traditionally, all databases were SQL.  SQL stores your data in a flat tabular structure.  Think spreadsheet with rows and columns of normalized data.
+SQL data is strictly defined by your schema.  SQL is the query language that allows you to query the data.
+- Vulnerable to SQL injection.  Users can input script or SQL statements
+- SQL scales vertically, most commonly.  Meaning that as you collect more data you need to beef up your single computer storing the db.
+- SQL can also scale horizontally(more recently) by sharing the storage and querying across multiple computers.
+
+
+NoSQL
+Different types
+- Key/Value Store
+- Document Store (JSON Objects)
+- Graph
+
+NoSQL was created to overcome the limitations of SQL.
+- No Schema necessary, but optional to enforce if you choose via your app layer
+    - Schema can be enforced in the Application using Object Oriented design, or something like Mongoose
+    - Schema can be flexible and allow for dynamic data
+- Designed to scale horizontally, very easily
+- Typically faster than SQL, but the tradeoff is that it could be less reliable if you do not enforce easily accessibile data
+- Always used with an API, you don't need to learn another language because its JavaScript =)
+- There is some automatic sanitization.  Beware of the Mongoose 'Where' query, this has potential for insecurity
+- Design the db according to how you access your data
+
+MongoDB
+- Written in C++ under the hood, so its fast as fuck.  Faster than Kenny Powers fastball.
+- Uses a flat file database
+- Data is stored in JSON-like documents (BSON which is binary JSON. Images, video and other media is possible to store)
+
+Mongo Command Line
+- Install Mongo using homebrew or another method
+- Start the mongo server (runs on port 27017 by default). Mongo is running on a seperate server from your app.
+    $ sudo mongod
+- Enter the db shell by opening a new terminal window (while one mongod terminal window is still running)
+    $ mongo
+    You will get the > to start writing queries
+
+- Show all databases on the machine
+    $ show dbs
+    
+- Use or create a specific db by name
+    - If this database does not exist, mongo will create a new database!  The db will only be saved if you insert data.
+    $ use local
+    
+- Access or create a collection
+    - Must be using a specific db first
+    - If kids collection doesnt exist, mongo will create it.
+    - Since we do not have a kids collection, running this will not show anything until we insert data
+    $ db.kids.find()
+    $ db.kids.find().pretty() - Only works in shell to prettyfy our object
+    
+- Create a document in a collection
+    $ db.kids.insert({ name: 'Alice', job: 'Dog Walker' })
+
+- Query for a specific object whose name property is 'Alice'
+    $ db.kids.find({ name: 'Alice' })
+
+- Query for the first object with a certain k/v
+    $ db.kids.findOne({ job: 'Dog Walker' });
+
+- Update objects
+    - Update takes two args, the query and the object to REPLACE the queried object
+    - This will replace the Alice object entirely, meaning it will no longer have a name
+    $ db.kids.update({name: 'Alice'}, {job: 'Baby Walker'})
+    
+    - We should instead do this
+    $ db.kids.update({name: 'Alice'}, {name: 'Alice', job: 'Baby Walker'})
+    
+    - This is how you just update one property without overwriting the whole object
+    - use the $set operator
+    $ db.kids.update({name: 'Alice'}, {$set: {name: 'Zombie Alice', job: 'Zombie Walker'}})
+    
+    - Update Multiple Objects with the same k/v (By default update works like 'updateOne')
+    - You must pass a third argument, multi: true
+    $ db.kids.update({job: 'Baby Sitter'}, {$set: {job: 'Baby Walker'}}, {multi: true})
+    
+- Delete objects
+    - You can pass multi: true if you need to also
+    $ db.kids.remove({name: 'Bob'})
+
+- Delete a property from objects
+    - You can use update + $unset to delete properties
+    - Pass an empty object first to update all objects in the collection
+    - Use unset, then pass the property to delete with the value of an empty string
+    - Then pass multi: true to delete the property from all the objects instead of only the first result
+    
+    $ db.kids.update({}, {$unset: {propertyToDelete: ''}}, {multi: true})
+    
+- Other operators to explore
+    $push(Arrays), $pull(Arrays), $inc(increment)
+    
+    
+Importing Data in MongoDB
+- Use the mongoimport command
+    - You must have the mongod server running
+    - You should not have the mongo shell running
+    - Run the mongoimport from the command line in the directory that the file you are importing is located
+- You will specify the database and collection, file to import, and pass flags based on the structure of the data
+    - Here we are importing a json array
+    - If the json is just singe line objects you dont need to pass a flag
+    - If the data is csv then you pass --type csv --headerline
+    
+    $ mongoimport -d someDatabase -c someCollection < data-to-import.json --jsonArray
+    
